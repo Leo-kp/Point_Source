@@ -1,0 +1,19 @@
+info: OGS started on 2026-02-23 16:27:35+0100 in serial mode.
+info: This is OpenGeoSys-6 version 6.5.5.dirty. Log version: 2, Log level: info.
+info: Eigen use 1 threads
+info: Reading project file .
+2026-02-23 16:27:35.986 (   0.031s) [D4AACBC02E3C09DB]       vtkXMLReader.cxx:295    ERR| vtkXMLUnstructuredGridReader (000001A3C22BF290): Error opening file D:\RUB-Aktiväten\OGS\github\Benchmarks\Point_Source\stimtec-bh10_20180716\stimtec-square.vtu
+2026-02-23 16:27:36.127 (   0.171s) [D4AACBC02E3C09DB]       vtkExecutive.cxx:730    ERR| vtkCompositeDataPipeline (000001A3C22C4030): Algorithm vtkXMLUnstructuredGridReader (000001A3C22BF290) returned failure for request: vtkInformation (000001A3C22BAD30)
+  Debug: Off
+  Modified Time: 93
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_INFORMATION
+  FORWARD_DIRECTION: 0
+  ALGORITHM_AFTER_FORWARD: 1
+
+
+error: Mesh 'D:\RUB-Aktiväten\OGS\github\Benchmarks\Point_Source\stimtec-bh10_20180716\stimtec-square.vtu' contains zero points.
+critical: C:/Users/gitlab/code/ogs/ogs/Applications/ApplicationsLib/ProjectData.cpp:194 `anonymous-namespace'::readSingleMesh() 
+error: Could not read mesh from 'D:\RUB-Aktiväten\OGS\github\Benchmarks\Point_Source\stimtec-bh10_20180716\stimtec-square.vtu' file. No mesh added.
+error: OGS terminated with error on 2026-02-23 16:27:36+0100.
