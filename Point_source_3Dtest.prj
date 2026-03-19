@@ -97,7 +97,7 @@
             <prefix>liquid_ps3d_test</prefix>
             <timesteps>
                 <pair>
-                    <repeat> 50 </repeat>
+                    <repeat> 1 </repeat>
                     <each_steps> 2 </each_steps>
                 </pair>
             </timesteps>
@@ -188,7 +188,7 @@
                 </boundary_condition>
 
                 <boundary_condition>
-                    <mesh>cube_physical_group_back</mesh>
+                    <mesh>cube_physical_group_left</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
                     <parameter>pi_inf</parameter>

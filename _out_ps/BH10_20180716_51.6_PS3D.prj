@@ -53,7 +53,7 @@
                 <property>
                     <name>permeability</name>
                     <type>Constant</type>
-                    <value>2.4428571428571427e-15</value>
+                    <value>4.5e-14</value>
                 </property>
                 <property>
                     <name>reference_temperature</name>
@@ -63,7 +63,7 @@
                 <property>
                     <name>storage</name>
                     <type>Constant</type>
-                    <value>2.1714285714285715e-07</value>
+                    <value>1.2e-09</value>
                 </property>
             </properties>
         </medium>
@@ -87,7 +87,7 @@
                     <timesteps>
                         <pair>
                             <repeat>1</repeat>
-                            <delta_t>5</delta_t>
+                            <delta_t>1</delta_t>
                         </pair>
                     </timesteps>
                 </time_stepping>
@@ -99,7 +99,7 @@
             <timesteps>
                 <pair>
                     <repeat>1</repeat>
-                    <each_steps>5</each_steps>
+                    <each_steps>1</each_steps>
                 </pair>
             </timesteps>
             <variables>
@@ -134,23 +134,23 @@
         <parameter>
             <name>q_in</name>
             <type>Function</type>
-            <expression>(t &lt; 2659.97 ? 2.2339e-08 :
-           t &lt; 2689.27 ? 1.08984e-05 :
-           t &lt; 2703.72 ? -5.02127e-09 :
-           t &lt; 2800.72 ? 9.38908e-06 :
-           t &lt; 2942.27 ? 1.90956e-05 :
-           t &lt; 3081.27 ? 2.41941e-05 :
-           t &lt; 3195.37 ? 3.27881e-05 :
-           t &lt; 3308.12 ? 5.0799e-05 :
-           t &lt; 3466.22 ? 6.72243e-05 :
-           t &lt; 3575.17 ? 8.41117e-05 :
-           t &lt; 3665.42 ? 0.000100544 :
-           t &lt; 3741.02 ? 0.000118131 :
-           t &lt; 3819.37 ? 0.000134109 :
-           t &lt; 3906.42 ? 0.000151677 :
-           t &lt; 3991.77 ? 0.000166767 :
-           t &lt; 4149.97 ? 2.89914e-07 :
-           5.675e-08)</expression>
+            <expression>(t &lt; 2659.97 ? 2.33588e-08 :
+           t &lt; 2689.27 ? 1.13959e-05 :
+           t &lt; 2703.72 ? -5.2505e-09 :
+           t &lt; 2800.72 ? 9.8177e-06 :
+           t &lt; 2942.27 ? 1.99673e-05 :
+           t &lt; 3081.27 ? 2.52986e-05 :
+           t &lt; 3195.37 ? 3.42849e-05 :
+           t &lt; 3308.12 ? 5.3118e-05 :
+           t &lt; 3466.22 ? 7.02932e-05 :
+           t &lt; 3575.17 ? 8.79515e-05 :
+           t &lt; 3665.42 ? 0.000105134 :
+           t &lt; 3741.02 ? 0.000123523 :
+           t &lt; 3819.37 ? 0.000140232 :
+           t &lt; 3906.42 ? 0.000158601 :
+           t &lt; 3991.77 ? 0.00017438 :
+           t &lt; 4149.97 ? 3.03149e-07 :
+           5.93407e-08)</expression>
         </parameter>
     </parameters>
     <process_variables>
@@ -198,7 +198,7 @@
                     <parameter>pi_inf</parameter>
                 </boundary_condition>
                 <boundary_condition>
-                    <mesh>cube_physical_group_back</mesh>
+                    <mesh>cube_physical_group_left</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
                     <parameter>pi_inf</parameter>
