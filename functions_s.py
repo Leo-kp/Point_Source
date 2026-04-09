@@ -1,8 +1,6 @@
-from pathlib import Path
 import numpy as np
 from scipy import special as sc 
 import inspect
-from skimage.restoration import denoise_tv_chambolle
 
 #-----------------------------------------------------------------------------
 def pd_ps(t, ddict, k, r):
@@ -92,65 +90,5 @@ def step_rate_s(func, delta_t, tp, q_array, rd_dict, k_val, r_val, *args):
     p_ws = pi - (C * summation)
 
     return p_ws.squeeze() if num_scenarios == 1 else p_ws
-
-#----------------------------------------------------------------------------
-
-def scale_and_smooth(series, w=0.1):
-    """
-    Smothing a signal with scaling and function
-    arg. 
-    series: data series
-    w: weight of the smoothing
-    Re.
-    Smoothed curve in original scale
-    """
-    q_min = series.min()
-    q_max = series.max()
-    q_range = q_max - q_min
-    
-    if q_range == 0: return series # Avoid division by zero
-    
-    scaled = (series - q_min) / q_range
-    
-    smoothed = denoise_tv_chambolle(scaled.values, weight=w)
-    
-    return (smoothed * q_range) + q_min
-
-#----------------------------------------------------------------------------
-
-def pickings(series, window=20, sensitivity=5):
-    """
-    Picking based on steps by a moving average method
-    arg. 
-    series: data series
-    window: moving std window
-    sensitivity: sensitivity to noise
-    Re.
-    Smoothed curve in original scale
-    """
-    series_vals = series.values
-    series_idx = series.index
-    
-    rows=[]
-   
-    rolling_std = series.rolling(window=window).std().fillna(0).values #function of moving standard deviation
-    
-    last_val = series_vals[0]
-    i = window
-    
-    while i < len(series_vals) - 1:
-        current_val = series_vals[i]
-        local_noise = rolling_std[i]
-
-        dynamic_threshold = (local_noise * sensitivity) + 0.05 #0.05 for not triggering in silence
-        
-        if abs(current_val - last_val) > dynamic_threshold:
-            rows.append([series_idx[i], current_val]) 
-            last_val = current_val
-            i += window
-        else:
-            i += 1
-
-    return   np.array(rows)#transpose the shape
 
 #----------------------------------------------------------------------------
